@@ -102,3 +102,16 @@ button:hover{
   width: 3rem;
   height: 3rem;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--neutral-900);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--neutral-800);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neutral-400);
+}

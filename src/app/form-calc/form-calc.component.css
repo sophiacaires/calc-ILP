@@ -1,7 +1,18 @@
-form {
+section{
+  display: flex;
+  flex-direction: row;
+}
+
+form, .historySection{
+  background-color: var(--neutral-900);
+  margin: 4rem 0.5rem;
+  padding: 12px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
+
+  border-radius: 12px;
+  min-width: 300px;
 }
 
 header{
@@ -10,6 +21,29 @@ header{
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5rem;
+  height: 3rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+.historyList{
+  background-color: var(--neutral-850);
+  border-radius: 8px;
+}
+
+.record{
+  padding: 12px;
+  border-bottom: 0.5px solid var(--neutral-900);
+}
+
+.showHistory{
+  display: block;
+}
+
+.hideHistory{
+  display: none;
 }
 
 .operators {
@@ -41,4 +75,14 @@ header{
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 700px){
+  section{
+    display: flex;
+    flex-direction: column;
+  }
+  form, .historySection{
+    margin: 0.5rem;
+  }
 }

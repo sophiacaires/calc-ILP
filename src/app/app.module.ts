@@ -5,13 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormCalcComponent } from './form-calc/form-calc.component';
 import { FormsModule } from '@angular/forms';
-import { HistoryCalcComponent } from './history-calc/history-calc.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormCalcComponent,
-    HistoryCalcComponent
+    FormCalcComponent
   ],
   imports: [
     BrowserModule,

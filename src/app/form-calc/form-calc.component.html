@@ -1,34 +1,58 @@
-<form>
-  <header>
-    <div>
-      <h1>Calculadora</h1>
-    </div>
-    <button class="historyBtn" (click)="onClickToggleHistory()">
-      <!-- Mostrar e ocultar histórico -->
-      <div class="buttonContent">
-        <img
-          src="../assets/clock-counter-clockwise.svg"
-          alt="ícone do histórico"
-        />
+<section>
+  <form>
+    <header>
+      <div>
+        <h1>Calculadora</h1>
       </div>
-    </button>
-  </header>
+      <button class="historyBtn" (click)="onClickToggleHistory()">
+        <div class="buttonContent">
+          <img
+            src="../assets/clock-counter-clockwise.svg"
+            alt="ícone do histórico"
+          />
+        </div>
+      </button>
+    </header>
 
-  <input placeholder="0" type="number" [(ngModel)]="value1" name="value1" />
-  <input placeholder="0" type="number" [(ngModel)]="value2" name="value2" />
-  <div class="operators">
-    <button class="operatorBtn" (click)="onClickSum()">+</button>
-    <button class="operatorBtn" (click)="onClickSubstract()">−</button>
-    <button class="operatorBtn" (click)="onClickMultiply()">x</button>
-    <button class="operatorBtn" (click)="onClickDivide()">/</button>
-    <button class="clearBtn" (click)="onClickClear()">C</button>
-  </div>
-  <div class="result">
-    <p>Resultado</p>
-    <div class="outcome">
-      <p>
-        {{ outcome }}
-      </p>
+    <input placeholder="0" type="number" [(ngModel)]="value1" name="value1" />
+    <input placeholder="0" type="number" [(ngModel)]="value2" name="value2" />
+    <div class="operators">
+      <button class="operatorBtn" (click)="onClickSum()">+</button>
+      <button class="operatorBtn" (click)="onClickSubstract()">−</button>
+      <button class="operatorBtn" (click)="onClickMultiply()">x</button>
+      <button class="operatorBtn" (click)="onClickDivide()">/</button>
+      <button class="clearBtn" (click)="onClickClear()">C</button>
+    </div>
+    <div class="result">
+      <p>Resultado</p>
+      <div class="outcome">
+        <p>
+          {{ outcome }}
+        </p>
+      </div>
+    </div>
+  </form>
+  <div class="historySection" [ngClass]="getHistoryClass">
+    <header>
+      <h1>Histórico</h1>
+    </header>
+    <div class="historyList">
+
+      <div class="record">
+        <p>20 x 5 = 100</p>
+      </div>
+      <div class="record">
+        <p>20 x 5 = 100</p>
+      </div>
+      <div class="record">
+        <p>20 x 5 = 100</p>
+      </div>
+      <div class="record">
+        <p>20 x 5 = 100</p>
+      </div>
+      <div class="record">
+        <p>20 x 5 = 100</p>
+      </div>
     </div>
   </div>
-</form>
+</section>

@@ -9,35 +9,53 @@ export class FormCalcComponent {
   value1: number = 0;
   value2: number = 0;
   outcome: number = 0;
+  record: string = "";
+  history: string[] = [];
   historyState: boolean = false;
 
-  onClickSum(){
-    this.outcome=this.value1+this.value2;
+  addRecord(record: string) {
+    if (this.history.length >= 5) {
+      this.history.pop();
+    }
+    this.history.unshift(record);
+    console.log(this.history);
   }
 
-  onClickSubstract(){
-    this.outcome=this.value1-this.value2;
+  onClickSum() {
+    this.outcome = this.value1 + this.value2;
+    this.record = `${this.value1} + ${this.value2} = ${this.outcome}`;
+    this.addRecord(this.record);
   }
 
-  onClickMultiply(){
-    this.outcome=this.value1*this.value2;
+  onClickSubstract() {
+    this.outcome = this.value1 - this.value2;
+    this.record = `${this.value1} - ${this.value2} = ${this.outcome}`;
+    this.addRecord(this.record);
   }
 
-  onClickDivide(){
-    this.outcome=this.value1/this.value2;
+  onClickMultiply() {
+    this.outcome = this.value1 * this.value2;
+    this.record = `${this.value1} * ${this.value2} = ${this.outcome}`;
+    this.addRecord(this.record);
   }
 
-  onClickClear(){
+  onClickDivide() {
+    this.outcome = this.value1 / this.value2;
+    this.record = `${this.value1} / ${this.value2} = ${this.outcome}`;
+    this.addRecord(this.record);
+  }
+
+  onClickClear() {
     this.value1 = 0;
     this.value2 = 0;
     this.outcome = 0;
   }
 
-  onClickToggleHistory(){
-    if (this.historyState == false){
-      this.historyState = true;
-    }else{
-      this.historyState = false;
-    }
+  onClickToggleHistory() {
+    this.historyState = !this.historyState;
+  }
+
+  getHistoryClass(){
+    this.historyState ? 'showHistory' : 'hideHistory'
   }
 }
