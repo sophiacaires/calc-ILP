@@ -12,50 +12,52 @@ export class FormCalcComponent {
   record: string = "";
   history: string[] = [];
   historyState: boolean = false;
+  dinamicClass: string = 'hideHistory';
 
-  addRecord(record: string) {
-    if (this.history.length >= 5) {
-      this.history.pop();
-    }
-    this.history.unshift(record);
-    console.log(this.history);
-  }
+onClickSum() {
+  this.outcome = this.value1 + this.value2;
+  this.record = `${this.value1} + ${this.value2} = ${this.outcome}`;
+  this.addRecord(this.record);
+}
 
-  onClickSum() {
-    this.outcome = this.value1 + this.value2;
-    this.record = `${this.value1} + ${this.value2} = ${this.outcome}`;
-    this.addRecord(this.record);
-  }
+onClickSubstract() {
+  this.outcome = this.value1 - this.value2;
+  this.record = `${this.value1} - ${this.value2} = ${this.outcome}`;
+  this.addRecord(this.record);
+}
 
-  onClickSubstract() {
-    this.outcome = this.value1 - this.value2;
-    this.record = `${this.value1} - ${this.value2} = ${this.outcome}`;
-    this.addRecord(this.record);
-  }
+onClickMultiply() {
+  this.outcome = this.value1 * this.value2;
+  this.record = `${this.value1} * ${this.value2} = ${this.outcome}`;
+  this.addRecord(this.record);
+}
 
-  onClickMultiply() {
-    this.outcome = this.value1 * this.value2;
-    this.record = `${this.value1} * ${this.value2} = ${this.outcome}`;
-    this.addRecord(this.record);
-  }
-
-  onClickDivide() {
+onClickDivide() {
+  if (this.value1 == 0 || this.value2 == 0) {
+    alert('Não é possível dividir 0 por 0!');
+  } else {
     this.outcome = this.value1 / this.value2;
     this.record = `${this.value1} / ${this.value2} = ${this.outcome}`;
     this.addRecord(this.record);
   }
+}
 
-  onClickClear() {
-    this.value1 = 0;
-    this.value2 = 0;
-    this.outcome = 0;
-  }
+onClickClear() {
+  this.value1 = 0;
+  this.value2 = 0;
+  this.outcome = 0;
+}
 
-  onClickToggleHistory() {
-    this.historyState = !this.historyState;
-  }
+onClickToggleHistory() {
+  this.historyState == false ? this.dinamicClass = '' : this.dinamicClass = 'hideHistory';
+  this.historyState = !this.historyState;
+}
 
-  getHistoryClass(){
-    this.historyState ? 'showHistory' : 'hideHistory'
+addRecord(record: string) {
+  if (this.history.length >= 5) {
+    this.history.pop();
   }
+  this.history.unshift(record);
+  console.log(this.history);
+}
 }

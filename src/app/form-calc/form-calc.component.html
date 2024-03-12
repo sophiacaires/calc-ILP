@@ -32,26 +32,29 @@
       </div>
     </div>
   </form>
-  <div class="historySection" [ngClass]="getHistoryClass">
+  <div class="historySection {{ dinamicClass }}">
     <header>
       <h1>Histórico</h1>
     </header>
     <div class="historyList">
-
       <div class="record">
-        <p>20 x 5 = 100</p>
+        <p>
+          {{ history[0] }}
+        </p>
       </div>
       <div class="record">
-        <p>20 x 5 = 100</p>
+        <p>
+          {{ history[1] }}
+        </p>
       </div>
       <div class="record">
-        <p>20 x 5 = 100</p>
+        <p>{{ history[2] }}</p>
       </div>
       <div class="record">
-        <p>20 x 5 = 100</p>
+        <p>{{ history[3] }}</p>
       </div>
       <div class="record">
-        <p>20 x 5 = 100</p>
+        <p>{{ history[4] }}</p>
       </div>
     </div>
   </div>
