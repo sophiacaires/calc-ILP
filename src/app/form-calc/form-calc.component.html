@@ -1,7 +1,33 @@
 <form>
-  <input type="number" [(ngModel)]="num1" name="num1">
-  <input type="number" [(ngModel)]="num2" name="num2">
-  <button (click)="onClickSum()">Somar</button>
-  <p>Resultado</p>
-  {{sum}}
+  <header>
+    <div>
+      <h1>Calculadora</h1>
+    </div>
+    <button class="historyBtn" (click)="onClickToggleHistory()">
+      <div class="buttonContent">
+        <img
+          src="../assets/clock-counter-clockwise.svg"
+          alt="ícone do histórico"
+        />
+      </div>
+    </button>
+  </header>
+
+  <input placeholder="0" type="number" [(ngModel)]="value1" name="value1" />
+  <input placeholder="0" type="number" [(ngModel)]="value2" name="value2" />
+  <div class="operators">
+    <button class="operatorBtn" (click)="onClickSum()">+</button>
+    <button class="operatorBtn" (click)="onClickSubstract()">−</button>
+    <button class="operatorBtn" (click)="onClickMultiply()">x</button>
+    <button class="operatorBtn" (click)="onClickDivide()">/</button>
+    <button class="clearBtn" (click)="onClickClear()">C</button>
+  </div>
+  <div class="result">
+    <p>Resultado</p>
+    <div class="outcome">
+      <p>
+        {{ outcome }}
+      </p>
+    </div>
+  </div>
 </form>
